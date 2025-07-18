@@ -18,8 +18,15 @@ int main() {
     FileHandler fileHandler;
     fileHandler.ReadFile();
 
+    std::vector<std::string> stringPolynomials;
+    for (const auto& vec : fileHandler.outputs) {
+        std::string str;
+        for (int val : vec) str += std::to_string(val);
+        stringPolynomials.push_back(str);
+    }
 
-    Encoder encoder("1011000");
+    Encoder encoder(fileHandler.input, stringPolynomials, fileHandler.startingState);
+
 
     // Encode the input string
     std::cout << "Encoded Output: ";

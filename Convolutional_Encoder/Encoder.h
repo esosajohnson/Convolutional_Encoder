@@ -15,18 +15,19 @@
 
 class Encoder {
 public:
-    Encoder(std::string InputString) {
-        int requiredRegisters = 3;
-        for (int x = 0; x < requiredRegisters; x++) {
+    Encoder(std::string InputString,
+        std::vector<std::string> polyStrings,
+        std::vector<int> startState)
+        : InputData_(InputString), polynomials(polyStrings) {
+
+        // Initialize shift register values from starting state
+        for (int i = 0; i < startState.size(); i++) {
             ShiftRegisters sf;
-            sf.value = 0;
+            sf.value = startState[i];
             shiftregisters.push_back(sf);
         }
-        InputData_ = InputString;
-        polynomials.push_back("111");
-        polynomials.push_back("101");
-        polynomials.push_back("110");
     }
+
 
     bool Encode() {
         for (int i = 0; i < InputData_.length(); i++) {
