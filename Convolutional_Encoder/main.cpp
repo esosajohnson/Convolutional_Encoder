@@ -1,15 +1,9 @@
 //---------------------------------------
-//  Coventry University
-//  Computer Systems Engineering
-//  Object Oriented Programming
-//
 //  Author:  Esosa M. Johnson Ikponmwosa
-//     SID:  12059207
 //---------------------------------------
 
 #include <iostream>
 #include "Encoder.h"
-
 
 
 int main() {
@@ -20,8 +14,6 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "Author: Esosa M. Johnson Ikponmwosa" << std::endl;
-    std::cout << "Username: ikponmwose" << std::endl;
-    std::cout << "SID: 12059207" << std::endl << std::endl;
 
     FileHandler fileHandler;
     fileHandler.ReadFile();
