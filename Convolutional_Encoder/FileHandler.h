@@ -99,21 +99,25 @@ public:
         std::cout << "File " << inputFileName << " read successfully" << std::endl;
         std::cout << "This encoder has " << numShiftRegisters << "x shift registers." << std::endl;
         std::cout << "The starting state of the shift registers is: ";
-        for (int i : startingState) {
-            std::cout << i << ", ";
+        for (size_t i = 0; i < startingState.size(); ++i) {
+            std::cout << startingState[i];
+            if (i != startingState.size() - 1) std::cout << ", ";
         }
+        std::cout << std::endl;
+
         std::cout << std::endl;
         std::cout << "The input is: " << input << std::endl;
         std::cout << "The generator polynomials are:" << std::endl;
         for (int i = 0; i < outputs.size(); i++) {
             std::cout << "Output " << (char)(i + 65) << ": ";
-            for (int j : outputs[i]) {
-                std::cout << j << ", ";
+            for (size_t j = 0; j < outputs[i].size(); ++j) {
+                std::cout << outputs[i][j];
+                if (j != outputs[i].size() - 1) std::cout << ", ";
             }
             std::cout << std::endl;
         }
-        std::cout << "This encoder is a rate 1/" << numShiftRegisters << " encoder (1 input to " << numShiftRegisters
-                  << " outputs)." << std::endl;
+        std::cout << "This encoder is a rate 1/" << outputs.size()
+            << " encoder (1 input to " << outputs.size() << " outputs)." << std::endl;
     }
 
 };
