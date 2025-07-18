@@ -54,7 +54,12 @@ public:
                         startingState.push_back(std::stoi(token3));
                     }
                 } else {
-                    input = token2;
+                    for (char ch : token2) {
+                        if (ch == '0' || ch == '1') {
+                            input += ch;
+                        }
+                    }
+                    ;
                 }
             }
 
