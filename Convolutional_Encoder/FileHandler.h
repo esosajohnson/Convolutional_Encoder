@@ -21,6 +21,12 @@ public:
     }
 
     void FileH() {
+        // Reset all previous data
+        startingState.clear();
+        outputs.clear();
+        input.clear();
+        numShiftRegisters = 0;
+
         // Prompts the user to enter the filename of any encoder
         std::string inputFileName;
         std::cout << "Please enter the input filename from the keyboard: " << std::endl;
